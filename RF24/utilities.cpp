@@ -66,7 +66,7 @@ void prepareClocks(void)
 			if (SysTick_Config(CMU_ClockFreqGet(cmuClock_CORE) / 1000))
 			  while(1);
 }
-
+#if defined(HARDWARE_VERSION_1_0)
 void prepareGPIO(void)
 {
 
@@ -89,6 +89,34 @@ void prepareGPIO(void)
 	LEUART0->ROUTE = (LEUART0->ROUTE & ~_LEUART_ROUTE_LOCATION_MASK)
 		| LEUART_ROUTE_LOCATION_LOC3;
 	LEUART0->ROUTE |= LEUART_ROUTE_RXPEN | LEUART_ROUTE_TXPEN;
+	// Pins connected to ground
+	GPIO_PinOutClear(gpioPortB, 13);
+	GPIO_PinOutClear(gpioPortC, 15);
+	GPIO_PinOutClear(gpioPortE, 12);
+	GPIO_PinOutClear(gpioPortE, 13);
+	GPIO_PinModeSet(gpioPortB, 13, gpioModePushPull, 0);
+	GPIO_PinModeSet(gpioPortB, 14, gpioModeInput, 0);
+	GPIO_PinModeSet(gpioPortC, 15, gpioModePushPull, 0);
+	GPIO_PinModeSet(gpioPortE, 12, gpioModePushPull, 0);
+	GPIO_PinModeSet(gpioPortE, 13, gpioModePushPull, 0);
+	// Configure LEUART pins
+	GPIO->P[5].MODEL = (GPIO->P[5].MODEL & ~_GPIO_P_MODEL_MODE0_MASK)
+		| GPIO_P_MODEL_MODE0_PUSHPULL;
+	GPIO->P[5].MODEL = (GPIO->P[5].MODEL & ~_GPIO_P_MODEL_MODE1_MASK)
+		| GPIO_P_MODEL_MODE1_INPUT;
+	LEUART0->ROUTE = (LEUART0->ROUTE & ~_LEUART_ROUTE_LOCATION_MASK)
+		| LEUART_ROUTE_LOCATION_LOC3;
+	LEUART0->ROUTE |= LEUART_ROUTE_RXPEN | LEUART_ROUTE_TXPEN;
+#else
+	// Configure LEUART pins
+	GPIO->P[5].MODEL = (GPIO->P[5].MODEL & ~_GPIO_P_MODEL_MODE0_MASK)
+		| GPIO_P_MODEL_MODE0_PUSHPULL;
+	GPIO->P[5].MODEL = (GPIO->P[5].MODEL & ~_GPIO_P_MODEL_MODE1_MASK)
+		| GPIO_P_MODEL_MODE1_INPUT;
+	LEUART0->ROUTE = (LEUART0->ROUTE & ~_LEUART_ROUTE_LOCATION_MASK)
+		| LEUART_ROUTE_LOCATION_LOC3;
+	LEUART0->ROUTE |= LEUART_ROUTE_RXPEN | LEUART_ROUTE_TXPEN;
+#endif
 }
 
 void delayMicroseconds(uint32_t microseconds)
