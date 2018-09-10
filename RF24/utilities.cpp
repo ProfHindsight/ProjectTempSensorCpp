@@ -66,10 +66,10 @@ void prepareClocks(void)
 			if (SysTick_Config(CMU_ClockFreqGet(cmuClock_CORE) / 1000))
 			  while(1);
 }
-#if defined(HARDWARE_VERSION_1_0)
+
 void prepareGPIO(void)
 {
-
+#if defined(HARDWARE_VERSION_1_0)
 // Pins connected to ground
 	GPIO_PinOutClear(gpioPortB, 13);
 	GPIO_PinOutClear(gpioPortB, 14);
@@ -89,6 +89,7 @@ void prepareGPIO(void)
 	LEUART0->ROUTE = (LEUART0->ROUTE & ~_LEUART_ROUTE_LOCATION_MASK)
 		| LEUART_ROUTE_LOCATION_LOC3;
 	LEUART0->ROUTE |= LEUART_ROUTE_RXPEN | LEUART_ROUTE_TXPEN;
+#elif defined (HARDWARE_VERSION_2_0)
 	// Pins connected to ground
 	GPIO_PinOutClear(gpioPortB, 13);
 	GPIO_PinOutClear(gpioPortC, 15);

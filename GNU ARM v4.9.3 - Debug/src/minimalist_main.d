@@ -1,4 +1,4 @@
-src/main.o: ../src/main.cpp \
+src/minimalist_main.o: ../src/minimalist_main.cpp \
  t:\siliconlabs\simplicitystudio\v4\developer\sdks\exx32\v5.0.0.0\platform\device\siliconlabs\efm32tg\include\em_device.h \
  t:\siliconlabs\simplicitystudio\v4\developer\sdks\exx32\v5.0.0.0\platform\device\siliconlabs\efm32tg\include\efm32tg108f32.h \
  t:\siliconlabs\simplicitystudio\v4\developer\sdks\exx32\v5.0.0.0\platform\cmsis\include\core_cm3.h \
