@@ -39,7 +39,7 @@
 								<option id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.def.symbols.329535518" name="Defined symbols (-D)" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.def.symbols" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="EFM32TG108F32=1"/>
 									<listOptionValue builtIn="false" value="CUSTOM_BOARD=1"/>
-									<listOptionValue builtIn="false" value="HARDWARE_VERSION_2_0=1"/>
+									<listOptionValue builtIn="false" value="HARDWARE_VERSION_1_0=1"/>
 									<listOptionValue builtIn="false" value="RTCDRV_USE_LFRCO=1"/>
 								</option>
 								<option id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.debug.builtin.1617943808" name="Always branch to builtin functions (-fno-builtin)" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.c.compiler.debug.builtin" value="true" valueType="boolean"/>
@@ -70,7 +70,7 @@
 									<listOptionValue builtIn="false" value="&quot;${StudioSdkPath}/platform/Device/SiliconLabs/EFM32TG/Include&quot;"/>
 								</option>
 								<option id="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.def.symbols.239039059" name="Defined symbols (-D)" superClass="com.silabs.ide.si32.gcc.cdt.managedbuild.tool.gnu.cpp.compiler.def.symbols" valueType="definedSymbols">
-									<listOptionValue builtIn="false" value="HARDWARE_VERSION_2_0=1"/>
+									<listOptionValue builtIn="false" value="HARDWARE_VERSION_1_0=1"/>
 									<listOptionValue builtIn="false" value="CUSTOM_BOARD=1"/>
 									<listOptionValue builtIn="false" value="EFM32TG108F32=1"/>
 								</option>

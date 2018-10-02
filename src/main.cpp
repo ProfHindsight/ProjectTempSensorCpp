@@ -22,7 +22,7 @@
 #define Si7020_device_address 	0x80
 #define BMP280_device_address	0xEE
 
-#define MS_DELAY_BETWEEN_PACKETS	5000
+#define MS_DELAY_BETWEEN_PACKETS	60000
 
 I2C_TypeDef* i2c;
 RTCDRV_TimerID_t rtc_id;
